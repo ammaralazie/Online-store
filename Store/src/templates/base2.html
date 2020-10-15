@@ -1,0 +1,262 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design Bootstrap</title>
+  <link href="{% static 'home_static/css/tble.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="{% static 'home_static/css/bootstrap.min.css' %}" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="{% static 'home_static/css/mdb.min.css' %}" rel="stylesheet">
+
+<link href="{% static 'home_static/css/sss.css' %}" rel="stylesheet">
+<link href="{% static 'home_static/css/tble.css' %}" rel="stylesheet">
+<link href="{% static 'home_static/css/hideen.css' %}" rel="stylesheet">
+<!-- Your custom styles (optional) -->
+<link href="{% static 'home_static/css/style.min.css' %}" rel="stylesheet">
+
+
+
+<style type="text/css">
+  html,
+  body,
+  header,
+  .carousel {
+    height: 60vh;
+  }
+
+  @media (max-width: 740px) {
+
+    html,
+    body,
+    header,
+    .carousel {
+      height: 100vh;
+    }
+  }
+
+  @media (min-width: 800px) and (max-width: 850px) {
+
+    html,
+    body,
+    header,
+    .carousel {
+      height: 100vh;
+    }
+  }
+
+</style>
+</head>
+
+<body>
+  <div id="qwe">
+
+  </div>
+
+<!-- Navbar -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+  <div class="container">
+
+    <!-- Brand -->
+    <a class="navbar-brand waves-effect" href="{% url 'product:products_list' %}" >
+      <strong class="blue-text"><img style="max-width:200px;max-height:70px;" src="{% static 'home_static/img/logo.png' %}"> Souq </strong>
+    </a>
+
+    <!-- Collapse -->
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <!-- Left -->
+      <ul class="navbar-nav mr-auto">
+
+
+
+      </ul>
+
+      <!-- Right -->
+      <ul class="navbar-nav nav-flex-icons">
+
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'product:cart' %}">
+            <span class="clearfix d-none d-sm-inline-block"> Your Cart </span>
+            <i class="fas fa-shopping-cart"></i>
+            <span class="badge red z-depth-1 mr-1"> {{customerItem}} </span>
+          </a>
+          </li>
+        <li class="nav-item">
+
+          <div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="fas fa-user-alt"></i> {{user.username}}
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="{% url 'acounts:my_profile' user.username %}">My Profile</a>
+    <a class="dropdown-item" href="{% url 'acounts:edit_profile'  %}">Edit My Profile</a>
+    <a class="dropdown-item" href="{% url 'password_change' %}">Change Mypassword</a>
+    <a class="dropdown-item" href="#">My Orders</a>
+    <a class="dropdown-item" href="#">Track Orders</a>
+    <hr>
+    <a class="dropdown-item" href="{% url 'acounts:logout' %}">Logout</a>
+  </div>
+</div>
+        </li>
+
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'product:cart' %}">
+            <span class="clearfix d-none d-sm-inline-block"> Your Cart </span>
+            <i class="fas fa-shopping-cart"></i>
+            <span class="badge red z-depth-1 mr-1"> {{customerItem}} </span>
+          </a>
+          </li>
+        <li class="nav-item">
+          <a href="{% url 'login' %}" class="nav-link border border-light rounded waves-effect"
+            target="_blank">
+           <i class="fas fa-sign-in-alt"></i>Login
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="{% url 'acounts:signup' %}" class="nav-link border border-light rounded waves-effect"
+            target="_blank">
+           <i class="fas fa-user-plus"></i>SignUp
+          </a>
+        </li>
+        {% endif %}
+
+      </ul>
+
+    </div>
+
+  </div>
+</nav>
+<!-- Navbar -->
+<!--Carousel Wrapper-->
+{% block  contentammar %}
+
+{% endblock contentammar %}
+
+<!--Footer-->
+<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+  <!--Call to action-->
+  <!--/.Call to action-->
+
+  <hr class="my-4">
+
+  <!-- Social icons -->
+  <div class="pb-4">
+    <a href="https://www.facebook.com/mdbootstrap" target="_blank">
+      <i class="fab fa-facebook-f mr-3"></i>
+    </a>
+
+    <a href="https://twitter.com/MDBootstrap" target="_blank">
+      <i class="fab fa-twitter mr-3"></i>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
+      <i class="fab fa-youtube mr-3"></i>
+    </a>
+
+    <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">
+      <i class="fab fa-google-plus-g mr-3"></i>
+    </a>
+
+    <a href="https://dribbble.com/mdbootstrap" target="_blank">
+      <i class="fab fa-dribbble mr-3"></i>
+    </a>
+
+    <a href="https://pinterest.com/mdbootstrap" target="_blank">
+      <i class="fab fa-pinterest mr-3"></i>
+    </a>
+
+    <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">
+      <i class="fab fa-github mr-3"></i>
+    </a>
+
+    <a href="http://codepen.io/mdbootstrap/" target="_blank">
+      <i class="fab fa-codepen mr-3"></i>
+    </a>
+  </div>
+  <!-- Social icons -->
+
+  <!--Copyright-->
+  <div class="footer-copyright py-3">
+    © 2019 Copyright:
+    <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
+  </div>
+  <!--/.Copyright-->
+
+</footer>
+<!--/.Footer-->
+
+<!-- SCRIPTS -->
+<script type="text/javascript" src="{% static 'home_static/js/amr/cartBase2.js' %}"></script>
+<!-- JQuery -->
+<script type="text/javascript" src="{% static 'home_static/js/jquery-3.4.1.min.js' %}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="{% static 'home_static/js/popper.min.js' %}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{% static 'home_static/js/bootstrap.min.js' %}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{% static 'home_static/js/mdb.min.js' %}"></script>
+<!-- Initializations -->
+<script type="text/javascript">
+  // Animations initialization
+  new WOW().init();
+
+</script>
+<script type="text/javascript">
+//اهنا دزينا المعلومات مالتي من ملف الني بيه الى ملفات جافا سكربت
+  var user='{{user}}';
+  //docs.dajngo project AJAX
+  function gettoken(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+
+}
+//انضيف هذا المتغير الى ملف الجافا سكربت حتى نححق مطالب سي اس ا اس ار اف تكوين
+const csrftoken = gettoken('csrftoken');
+function getCookie(name){
+     //اهنا كتبنة سبلت حتى انشيل الفاصلة المنقوطة
+    var cookieArr=document.cookie.split(";");
+    for(var i=0;i<cookieArr.length;i++){
+      //اهنا كتبنة السبلت حتى انشيل اليساوي
+      var cookiePair=cookieArr[i].split("=")
+        console.log(decodeURIComponent(cookiePair[0])),console.log(decodeURIComponent(cookiePair[1])),console.log(name);
+      if (name==cookiePair[0].trim()){
+        return decodeURIComponent(cookiePair[1])
+      }//end if
+    }//end for
+    return null
+  }//end function
+  //كتبنة هاي حتى انمرر الكارت ك اوبجكت داخل الميثود
+  var cart=JSON.parse(getCookie('cart'))
+  if (cart==undefined){
+   cart={};
+   document.cookie='cart='+JSON.stringify(cart)+";domain=;path=/;"
+   console.log('cart was created');
+  }
+</script>
+
+</body>
+
+</html>

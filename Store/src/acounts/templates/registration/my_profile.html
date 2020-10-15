@@ -1,0 +1,43 @@
+{% load static %}
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="{% static 'home_static/css/profile.css' %}">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="row">
+        <div class="">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                      {% if profile.image %}
+                        <img src="{{profile.image.url}}" alt="" class="img-rounded img-responsive" />
+                      {% else %}
+                       <img src="{% static 'home_static/img/1.png' %}" alt="" class="img-rounded img-responsive" />
+                       {% endif %}
+                    </div>
+                    <div class="col-sm-6 col-md-8">
+                        <h4>
+                            {{main_profile.first_name}} {{main_profile.last_name}}</h4>
+                        <small><cite title="San Francisco, USA">{{profile.country}} , {{profile.address}} <i class="glyphicon glyphicon-map-marker">
+                        </i></cite></small>
+                        <p>
+                            <i class="glyphicon glyphicon-envelope"></i>{{main_profile.email}}
+                            <br />
+                            <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.com">www.jquery2dotnet.com</a>
+                            <br />
+                            <i class="glyphicon glyphicon-gift"></i>{{profile.join_date}}</p>
+                        <!-- Split button -->
+
+                        <div class="btn-group">
+                          <a href="{% url 'acounts:edit_profile'  %}" class="btn btn-secondary btn-lg active" >Edit Profile</a>
+
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

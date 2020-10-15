@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% block body %}
+<div class="container mt-4">
+  <div class="row col-md-6">
+    <form method="post">
+      {% if user.is_login %}
+    {% bootstrap_messages %}
+    {# Display a form #}
+      {% csrf_token %}
+      {% bootstrap_form form2 %}
+      {% buttons %}
+        <button type="submit" class="btn btn-primary">
+          Update
+        </button>
+      {% endbuttons %}
+      {% else %}
+      <h1>sdgdsg</h1>
+      {% endif %}
+      </form>
+  </div>
+</div>
+{% endblock %}
